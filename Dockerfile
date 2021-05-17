@@ -1,6 +1,6 @@
-FROM ubuntu:18.04
+FROM alpine
 
-RUN apt-get install docker
+RUN apk add docker
 
 RUN docker pull ppiper/neo-cli
 RUN docker build -t ppiper/neo-cli .
