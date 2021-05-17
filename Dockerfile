@@ -1,6 +1,6 @@
-FROM alpine:3.7
+FROM ubuntu:18.04
 
-RUN apk add --no-cache docker
+RUN apt-get docker
 
 RUN docker pull ppiper/neo-cli
 RUN docker build -t ppiper/neo-cli .
