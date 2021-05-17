@@ -1,6 +1,7 @@
 # Container image that runs your code
-FROM devxci/mbtci:latest
-FROM ppiper/neo-cli:latest
+FROM alpine:3.10
+
+RUN docker pull devxci/mbtci
 
 USER root
 
