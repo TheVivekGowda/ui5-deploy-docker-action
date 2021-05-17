@@ -1,7 +1,8 @@
 # Container image that runs your code
 FROM node:lts-alpine
 
-RUN npm i -g --force yarn
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
 FROM devxci/mbtci-alpine:latest
 
