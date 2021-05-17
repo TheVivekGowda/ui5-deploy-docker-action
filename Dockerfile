@@ -1,10 +1,7 @@
 # Container image that runs your code
 FROM node:lts-alpine
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-COPY . /usr/src/app
+cd "$GITHUB_WORKSPACE" "$GITHUB_REPOSITORY" || exit
 
 FROM devxci/mbtci-alpine:latest
 
