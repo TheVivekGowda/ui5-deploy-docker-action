@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt-get docker
+RUN apt-get install docker
 
 RUN docker pull ppiper/neo-cli
 RUN docker build -t ppiper/neo-cli .
