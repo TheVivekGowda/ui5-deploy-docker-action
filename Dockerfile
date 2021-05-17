@@ -1,8 +1,6 @@
 # Container image that runs your code
 FROM node:lts-alpine
 
-cd "$GITHUB_WORKSPACE" "$GITHUB_REPOSITORY" || exit
-
 FROM devxci/mbtci-alpine:latest
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
