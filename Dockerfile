@@ -2,9 +2,9 @@ FROM alpine:latest
 
 RUN apk --no-cache add docker
 
-RUN docker pull ppiper/neo-cli
+RUN docker pull devxci/mbtci
 
-RUN docker build -t ppiper/neo-cli .
+RUN docker build -t devxci/mbtci .
 
 # Container image that runs your code
 # FROM devxci/mbtci
