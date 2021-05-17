@@ -1,5 +1,6 @@
 # Container image that runs your code
 FROM devxci/mbtci:latest
+FROM ppiper/neo-cli:latest
 
 USER root
 
