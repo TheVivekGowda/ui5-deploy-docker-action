@@ -1,8 +1,6 @@
 # Container image that runs your code
 FROM devxci/mbtci
 
-RUN pip install neo-cli
-
 USER root
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
