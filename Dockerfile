@@ -2,8 +2,6 @@
 FROM devxci/mbtci
 
 # Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-COPY . .
+RUN root -v "$(pwd):/project"
 
 RUN mbt build --mtar -p=neo
