@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-echo $pwd
+docker run -u root -v "$(pwd):/project" devxci/mbtci:latest mbt build --mtar -p=neo -t ui5app.mtar
