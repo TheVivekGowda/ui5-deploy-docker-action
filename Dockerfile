@@ -1,6 +1,11 @@
 # Container image that runs your code
 FROM ubuntu
 
+RUN apt-get install curl
+RUN apt-get install docker
+  
+docker pull devxci/mbtci
+
 # USER root
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
