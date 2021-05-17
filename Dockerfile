@@ -7,5 +7,7 @@ COPY entrypoint.sh /entrypoint.sh
 # Make file executable
 RUN chmod +x /entrypoint.sh
 
+FROM devxci/mbtci-alpine:latest
+
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
