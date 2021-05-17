@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM node:lts-alpine
+FROM node:14
 
 FROM devxci/mbtci-alpine:latest
 
