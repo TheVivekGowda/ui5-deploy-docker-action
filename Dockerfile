@@ -1,9 +1,7 @@
 # Container image that runs your code
-FROM alpine:3.10
+FROM node:12.14.1-alpine
 
 FROM devxci/mbtci-alpine:latest
-
-RUN apt-get update -qq && apt-get install -y yarn
 
 RUN yarn add mbt
 
