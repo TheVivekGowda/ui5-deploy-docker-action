@@ -3,6 +3,8 @@ FROM alpine:3.7
 
 # USER root
 
+RUN sudo dockerd
+
 RUN apk add --no-cache docker
 
 RUN docker pull devxci/mbtci
