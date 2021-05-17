@@ -4,6 +4,8 @@ FROM node:lts-alpine
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
+COPY . /usr/src/app
+
 FROM devxci/mbtci-alpine:latest
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
