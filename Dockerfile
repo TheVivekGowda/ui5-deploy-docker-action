@@ -1,5 +1,15 @@
 FROM ppiper/neo-cli
 
+USER root
+
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY neo.sh /neo.sh
+
+# Make file executable
+RUN chmod +x /neo.sh
+
+ENTRYPOINT ["/neo.sh"]
+
 # Container image that runs your code
 FROM devxci/mbtci
 
