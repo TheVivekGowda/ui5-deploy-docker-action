@@ -1,9 +1,5 @@
-FROM alpine:latest
-
-RUN apk --no-cache add docker
-
 # Container image that runs your code
-# FROM devxci/mbtci
+FROM devxci/mbtci
 
 USER root
 
