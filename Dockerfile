@@ -9,6 +9,8 @@ COPY entrypoint.sh /entrypoint.sh
 # Make file executable
 RUN chmod +x /entrypoint.sh
 
+RUN npm install -g mbt
+
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
 
