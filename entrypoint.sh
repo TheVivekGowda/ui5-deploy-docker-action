@@ -2,6 +2,6 @@
 
 docker pull devxci/mbtci
 
-yarn add mbt
+npm install mbt
 
 mbt build --mtar -p=neo -t ui5app.mtar
