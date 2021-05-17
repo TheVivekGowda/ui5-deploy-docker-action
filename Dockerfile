@@ -1,10 +1,5 @@
 # Container image that runs your code
-FROM ubuntu
-
-RUN apt-get install curl
-RUN apt-get install docker
-  
-docker pull devxci/mbtci
+FROM devxci/mbtci
 
 # USER root
 
@@ -16,3 +11,5 @@ RUN chmod +x /entrypoint.sh
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
+
+FROM ppiper/neo-cli
