@@ -1,4 +1,9 @@
-FROM ppiper/neo-cli
+FROM alpine:3.7
+
+RUN apk add --no-cache docker
+
+RUN docker pull ppiper/neo-cli
+RUN docker build -t ppiper/neo-cli .
 
 # Container image that runs your code
 FROM devxci/mbtci
