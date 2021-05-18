@@ -17,7 +17,7 @@ FROM ppiper/neo-cli
 
 USER root
 
-COPY --from=0 /project /project
+# COPY --from=0 /project /project
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY neo-deploy.sh /neo-deploy.sh
