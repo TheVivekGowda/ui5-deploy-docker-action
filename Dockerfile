@@ -116,12 +116,19 @@ RUN apt-get install bash && \
      ln -s /sdk/tools/neo.sh /usr/bin/neo.sh && \
      rm -rf /var/lib/apt/lists/*
 
+# # Copies your code file from your action repository to the filesystem path `/` of the container
+# COPY entrypoint.sh /entrypoint.sh
+
+# # Make file executable
+# RUN chmod +x /entrypoint.sh
+
+# # Code file to execute when the docker container starts up (`entrypoint.sh`)
+# ENTRYPOINT ["bash", "/entrypoint.sh"]
+
 # Copies your code file from your action repository to the filesystem path `/` of the container
-COPY entrypoint.sh /entrypoint.sh
+COPY neo-deploy.sh /neo-deploy.sh
 
 # Make file executable
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /neo-deploy.sh
 
-# Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["bash", "/entrypoint.sh"]
-CMD ["bash", "neo.sh"]
+ENTRYPOINT ["/neo-deploy.sh"]
