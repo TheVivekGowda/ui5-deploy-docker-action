@@ -110,7 +110,8 @@ USER mta
 
 USER root
 
-RUN mvn com.sap.cloud:neo-javaee7-wp-maven-plugin:1.89.11:install-sdk -DsdkInstallPath=sdk -Dincludes=tools/**,license/**,sdk.version && \
+RUN apt-get install bash && \
+     mvn com.sap.cloud:neo-javaee7-wp-maven-plugin:1.89.11:install-sdk -DsdkInstallPath=sdk -Dincludes=tools/**,license/**,sdk.version && \
      chmod -R 777 sdk && \
      ln -s /sdk/tools/neo.sh /usr/bin/neo.sh && \
      rm -rf /var/lib/apt/lists/*
