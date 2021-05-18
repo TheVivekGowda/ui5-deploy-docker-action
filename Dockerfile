@@ -45,7 +45,7 @@ ENV GOOS=linux
 
 # Download required env tools
 RUN apt-get update && \
-    apt-get install --yes --no-install-recommends curl git  && \
+    apt-get install --yes --silent --no-install-recommends curl git  && \
 
     # Change security level as the SAP npm repo doesnt support buster new security upgrade
     # the default configuration for OpenSSL in Buster explicitly requires using more secure ciphers and protocols,
@@ -62,10 +62,10 @@ RUN apt-get update && \
     ln -s "${NODE_HOME}/node-${NODE_VERSION}-linux-x64/bin/node" /usr/local/bin/node && \
     ln -s "${NODE_HOME}/node-${NODE_VERSION}-linux-x64/bin/npm" /usr/local/bin/npm && \
     ln -s "${NODE_HOME}/node-${NODE_VERSION}-linux-x64/bin/npx" /usr/local/bin/ && \
-    npm install --prefix /usr/local/ -g grunt-cli && \
+    npm install --prefix --silent /usr/local/ -g grunt-cli && \
     echo "[INFO] installing maven." && \
     # install ui5-cli temporay solution
-     npm install --prefix /usr/local/ -g @ui5/cli && \
+     npm install --prefix --silent /usr/local/ -g @ui5/cli && \
 #     installing Golang
     curl -O https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz && tar -xvf go${GO_VERSION}.linux-amd64.tar.gz && \
     mv go /usr/local && \
@@ -81,7 +81,7 @@ RUN apt-get update && \
      chmod --recursive a+w "${M2_HOME}"/conf/* && \
 
      # Download MBT
-     curl -L "https://github.com/SAP/cloud-mta-build-tool/releases/download/v${MBT_VERSION}/cloud-mta-build-tool_${MBT_VERSION}_Linux_amd64.tar.gz" | tar -zx -C /usr/local/bin && \
+     curl -L --silent "https://github.com/SAP/cloud-mta-build-tool/releases/download/v${MBT_VERSION}/cloud-mta-build-tool_${MBT_VERSION}_Linux_amd64.tar.gz" | tar -zx -C /usr/local/bin && \
      chown root:root /usr/local/bin/mbt && \
 
      # handle users permission
@@ -96,7 +96,7 @@ RUN apt-get update && \
          chmod a+w "${MTA_USER_HOME}" && \
 
     # Install essential build tools and python, required for building db modules
-     apt-get install --yes --no-install-recommends \
+     apt-get install --yes --silent --no-install-recommends \
            build-essential \
            python2.7 && \
     apt-get remove --purge --autoremove --yes \
