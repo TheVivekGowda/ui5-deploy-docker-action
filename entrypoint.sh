@@ -4,5 +4,4 @@
 
 ls -R
 
-docker pull devxci/mbtci-alpine:latest
-docker build -t devxci/mbtci .
+docker run -u root -v "/" devxci/mbtci:latest mbt build --mtar -p=neo -t ui5app.mtar
