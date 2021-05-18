@@ -28,4 +28,4 @@ COPY neo.sh /neo.sh
 RUN chmod +x /neo.sh
 
 ENTRYPOINT ["/neo.sh"]
-RUN ["/bin/bash", "/neo.sh"]
+# RUN ["/bin/bash", "/neo.sh"]
