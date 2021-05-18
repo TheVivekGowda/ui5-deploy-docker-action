@@ -10,19 +10,19 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
-CMD ["/bin/sh", "./entrypoint"]
+ENTRYPOINT ["entrypoint.sh"]
 
 
-FROM ppiper/neo-cli
+# FROM ppiper/neo-cli
 
-USER root
+# USER root
 
-COPY --from=0 /project /project
+# COPY --from=0 /project /project
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
-COPY neo.sh /neo.sh
+# # Copies your code file from your action repository to the filesystem path `/` of the container
+# COPY neo.sh /neo.sh
 
-# Make file executable
-RUN chmod +x /neo.sh
+# # Make file executable
+# RUN chmod +x /neo.sh
 
-CMD ["./neo"]
+# ENTRYPOINT ["neo.sh"]
