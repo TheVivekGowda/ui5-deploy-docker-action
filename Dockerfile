@@ -116,10 +116,10 @@ RUN mvn com.sap.cloud:neo-javaee7-wp-maven-plugin:1.89.11:install-sdk -DsdkInsta
      rm -rf /var/lib/apt/lists/*
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
-COPY entrypoint.sh /entrypoint.sh
+COPY neo.sh /neo.sh
 
 # Make file executable
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /neo.sh
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/neo.sh"]
