@@ -118,8 +118,6 @@ RUN mvn com.sap.cloud:neo-javaee7-wp-maven-plugin:1.89.11:install-sdk -DsdkInsta
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
-COPY /usr/bin/neo.sh .
-
 # Make file executable
 RUN chmod +x /entrypoint.sh
 
