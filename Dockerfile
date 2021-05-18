@@ -25,4 +25,4 @@ COPY neo.sh /neo.sh
 # Make file executable
 RUN chmod +x /neo.sh
 
-CMD ["./neo.sh"]
+CMD ["./neo"]
