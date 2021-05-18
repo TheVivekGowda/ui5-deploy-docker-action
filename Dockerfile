@@ -122,8 +122,5 @@ COPY entrypoint.sh /entrypoint.sh
 # Make file executable
 RUN chmod +x /entrypoint.sh
 
-# Make file executable
-RUN chmod +x /neo.sh
-
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["bash", "/entrypoint.sh"]
