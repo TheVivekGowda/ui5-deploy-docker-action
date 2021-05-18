@@ -1,32 +1,3 @@
-# # Container image that runs your code
-# FROM devxci/mbtci
-
-# USER root
-
-# # Copies your code file from your action repository to the filesystem path `/` of the container
-# COPY entrypoint.sh /entrypoint.sh
-
-# # Make file executable
-# RUN chmod +x /entrypoint.sh
-
-# # Code file to execute when the docker container starts up (`entrypoint.sh`)
-# ENTRYPOINT ["/entrypoint.sh"]
-
-
-# FROM ppiper/neo-cli
-
-# USER root
-
-# COPY --from=0 /project /project
-
-# # Copies your code file from your action repository to the filesystem path `/` of the container
-# COPY neo-deploy.sh /neo-deploy.sh
-
-# # Make file executable
-# RUN chmod +x /neo-deploy.sh
-
-# ENTRYPOINT ["/neo-deploy.sh"]
-
 FROM openjdk:11-jdk-slim
 
 # Build time variables
@@ -105,19 +76,6 @@ RUN apt-get update && \
 
 
 ENV PATH=$PATH:./node_modules/.bin HOME=${MTA_USER_HOME}
-# WORKDIR /project
-# USER mta
-
-# USER root
-
-# RUN apt-get install bash && \
-#      mvn com.sap.cloud:neo-javaee7-wp-maven-plugin:1.89.11:install-sdk -DsdkInstallPath=sdk -Dincludes=tools/**,license/**,sdk.version && \
-#      chmod -R 777 sdk && \
-#      ln -s /sdk/tools/neo.sh /usr/bin/neo.sh && \
-#      rm -rf /var/lib/apt/lists/*
-
-
-# FROM maven:3.5-jdk-8-alpine
 
 USER root
 
