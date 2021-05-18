@@ -107,3 +107,12 @@ RUN apt-get update && \
 ENV PATH=$PATH:./node_modules/.bin HOME=${MTA_USER_HOME}
 WORKDIR /project
 USER mta
+
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY entrypoint.sh /entrypoint.sh
+
+# Make file executable
+RUN chmod +x /entrypoint.sh
+
+# Code file to execute when the docker container starts up (`entrypoint.sh`)
+ENTRYPOINT ["/entrypoint.sh"]
