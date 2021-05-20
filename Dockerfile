@@ -77,8 +77,6 @@ RUN apt-get update && \
 
 ENV PATH=$PATH:./node_modules/.bin HOME=${MTA_USER_HOME}
 
-RUN npm install -g ui5-nwabap-deployer-cli
-
 USER root
 
 RUN  apt-get install bash && \
@@ -92,7 +90,5 @@ COPY entrypoint.sh /entrypoint.sh
 
 # Make file executable
 RUN chmod +x /entrypoint.sh
-
-RUN ui5-deployer --help
 
 ENTRYPOINT ["/entrypoint.sh"]
