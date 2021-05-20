@@ -4,9 +4,11 @@ FROM openjdk:11-jdk-slim
 RUN apt-get update && \
     apt-get install --yes --no-install-recommends curl git nodejs && \
 
-     # Download MBT
-     curl --silent -L "https://github.com/SAP/cloud-mta-build-tool/releases/download/v${MBT_VERSION}/cloud-mta-build-tool_${MBT_VERSION}_Linux_amd64.tar.gz" | tar -zx -C /usr/local/bin && \
-     chown root:root /usr/local/bin/mbt
+    wget https://github.com/SAP/cloud-mta-build-tool/releases/download/v${MBT_VERSION}/cloud-mta-build-tool_${MBT_VERSION}_Linux_amd64.tar.gz
+    
+    tar xvzf cloud-mta-build-tool_LATEST_Linux_amd64.tar.gz
+    
+    cp mbt /usr/local/bin/
 
 USER root
 
