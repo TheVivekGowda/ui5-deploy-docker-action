@@ -38,7 +38,7 @@ RUN apt-get update && \
     # install ui5-cli temporay solution
      npm install --prefix /usr/local/ -g @ui5/cli && \
 #     installing Golang
-    curl -O https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz && tar -xvf go${GO_VERSION}.linux-amd64.tar.gz && \
+    curl --silent -O https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz && tar -xvf go${GO_VERSION}.linux-amd64.tar.gz && \
     mv go /usr/local && \
     mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH" && \
     mkdir -p ${GOPATH}/src ${GOPATH}/bin && \
@@ -52,7 +52,7 @@ RUN apt-get update && \
      chmod --recursive a+w "${M2_HOME}"/conf/* && \
 
      # Download MBT
-     curl -L "https://github.com/SAP/cloud-mta-build-tool/releases/download/v${MBT_VERSION}/cloud-mta-build-tool_${MBT_VERSION}_Linux_amd64.tar.gz" | tar -zx -C /usr/local/bin && \
+     curl --silent -L "https://github.com/SAP/cloud-mta-build-tool/releases/download/v${MBT_VERSION}/cloud-mta-build-tool_${MBT_VERSION}_Linux_amd64.tar.gz" | tar -zx -C /usr/local/bin && \
      chown root:root /usr/local/bin/mbt && \
 
      # handle users permission
