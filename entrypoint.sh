@@ -1,5 +1,8 @@
 #!/bin/sh -l
 
+ls -R
+ls /usr/bin/
+
 # build mtar file
 mbt build --mtar -p=neo -t ui5app.mtar
 
