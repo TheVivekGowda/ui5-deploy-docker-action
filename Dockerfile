@@ -5,9 +5,9 @@ RUN apk add wget && apk add tar && apk add bash
 # Download required env tools
 RUN wget https://github.com/SAP/cloud-mta-build-tool/releases/download/v1.1.1/cloud-mta-build-tool_1.1.1_Linux_amd64.tar.gz
     
-    tar xvzf cloud-mta-build-tool_1.1.1_Linux_amd64.tar.gz
+RUN tar xvzf cloud-mta-build-tool_1.1.1_Linux_amd64.tar.gz
     
-    cp mbt /usr/local/bin/
+RUN cp mbt /usr/local/bin/
 
 USER root
 
