@@ -8,6 +8,7 @@ then
     neo.sh deploy-mta --host $4 --account $5 --source ./ui5app.mtar --synchronous --user $2 --password $3
 elif [ $1 == 'bsp' ]
 then
+    echo $3
     # deploy app as BSP
     ui5-deployer deploy --server $3 --user $1 --pwd $2
 else
