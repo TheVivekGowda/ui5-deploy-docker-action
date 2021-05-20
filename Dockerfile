@@ -77,6 +77,8 @@ RUN apt-get update && \
 
 ENV PATH=$PATH:./node_modules/.bin HOME=${MTA_USER_HOME}
 
+RUN npm install -g ui5-nwabap-deployer-cli
+
 USER root
 
 RUN  apt-get install bash && \
