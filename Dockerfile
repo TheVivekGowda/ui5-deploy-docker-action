@@ -86,9 +86,9 @@ RUN  apt-get install bash && \
      rm -rf /var/lib/apt/lists/*
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
-COPY neo-deploy.sh /neo-deploy.sh
+COPY entrypoint.sh /entrypoint.sh
 
 # Make file executable
-RUN chmod +x /neo-deploy.sh
+RUN chmod +x /entrypoint.sh
 
-ENTRYPOINT ["/neo-deploy.sh"]
+ENTRYPOINT ["/entrypoint.sh"]

@@ -1,16 +1,25 @@
 # action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: "UI5 Deployer"
+description: "Deploy UI5 application to different environments"
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  host-url: # id of input
+    description: "SAP BTP Host URL"
+    required: false
+    default: "eu2.hana.ondemand.com"
+  sub-account-id:
+    description: "SAP BTP Sub Account ID"
+    required: false
+  user:
+    description: "User ID for BTP Sub Account"
+    required: false
+  password:
+    description: "Password for BTP Sub Account User"
+    required: false
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.host-url }}
+    - ${{ inputs.sub-account-id }}
+    - ${{ inputs.user }}
+    - ${{ inputs.password }}
