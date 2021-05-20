@@ -1,10 +1,15 @@
 #!/bin/sh -l
 
-# build mtar file
-mbt build --mtar -p=neo -t ui5app.mtar
-
-# deploy mtar file to cloud
-neo.sh deploy-mta --host $1 --account $2 --source ./ui5app.mtar --synchronous --user $3 --password $4
-
-# deploy app as BSP
-ui5-deployer deploy --server https://integrtrdev.integrtr.com:8443/ --client '100' --user $3 --pwd $4 --package ZUI5_DEPLOY --bspContainer ZUI5BP --bspContainerText 'Boilerplate' --transportNo INDK901302 --transportText 'UI5' --calculateApplicationIndex true
+if [ $a == 'neo' ]
+then
+    # build mtar file
+    mbt build --mtar -p=neo -t ui5app.mtar
+    # deploy mtar file to cloud
+    neo.sh deploy-mta --host $3 --account $4 --source ./ui5app.mtar --synchronous --user $1 --password $2
+elif [ $a == 'bsp' ]
+then
+    # deploy app as BSP
+    ui5-deployer deploy --server $3 --user $1 --pwd $2
+else
+   echo "Please provide valid deployment type. Allowed values are neo and bsp"
+fi

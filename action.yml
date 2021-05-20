@@ -2,24 +2,29 @@
 name: "UI5 Deployer"
 description: "Deploy UI5 application to different environments"
 inputs:
-  host-url: # id of input
-    description: "SAP BTP Host URL"
-    required: false
+  type:
+    description: "Type of deployment - Neo, CF or BSP"
+    required: true
+  user:
+    description: "Credential - User ID"
+    required: true
+  password:
+    description: "Credential - Password"
+    required: true
+  host:
+    description: "System host url"
+    required: true
     default: "eu2.hana.ondemand.com"
   sub-account-id:
     description: "SAP BTP Sub Account ID"
     required: false
-  user:
-    description: "User ID for BTP Sub Account"
-    required: false
-  password:
-    description: "Password for BTP Sub Account User"
-    required: false
+
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.host-url }}
-    - ${{ inputs.sub-account-id }}
+    - ${{ inputs.type }}
     - ${{ inputs.user }}
     - ${{ inputs.password }}
+    - ${{ inputs.host }}
+    - ${{ inputs.sub-account-id }}
