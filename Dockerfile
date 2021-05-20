@@ -1,4 +1,5 @@
-FROM openjdk:11-jdk-slim
+FROM alpine
+# FROM openjdk:11-jdk-slim
 
 # # Build time variables
 # ARG MTA_USER_HOME=/home/mta
