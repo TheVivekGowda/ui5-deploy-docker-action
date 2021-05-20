@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add wget && apk add tar && apk add bash && apk add make && apk add maven
+RUN apk add -q wget && apk add -q tar && apk add -q bash && apk add -q make && apk add -q maven
 
 # Download required env tools
 RUN wget https://github.com/SAP/cloud-mta-build-tool/releases/download/v1.1.1/cloud-mta-build-tool_1.1.1_Linux_amd64.tar.gz
