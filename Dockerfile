@@ -1,10 +1,9 @@
-FROM openjdk:11-jdk-slim
+FROM alpine:latest
+
+RUN apk add wget tar bash mvn
 
 # Download required env tools
-RUN apt-get update && \
-    apt-get install --yes --no-install-recommends curl git nodejs && \
-
-    wget https://github.com/SAP/cloud-mta-build-tool/releases/download/v${MBT_VERSION}/cloud-mta-build-tool_${MBT_VERSION}_Linux_amd64.tar.gz
+RUN wget https://github.com/SAP/cloud-mta-build-tool/releases/download/v${MBT_VERSION}/cloud-mta-build-tool_${MBT_VERSION}_Linux_amd64.tar.gz
     
     tar xvzf cloud-mta-build-tool_LATEST_Linux_amd64.tar.gz
     
