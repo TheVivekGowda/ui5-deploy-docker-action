@@ -5,7 +5,7 @@ then
     # build mtar file
     mbt build --mtar -p=neo -t ui5app.mtar
     # deploy mtar file to cloud
-    neo.sh deploy-mta --host $3 --account $4 --source ./ui5app.mtar --synchronous --user $1 --password $2
+    neo.sh deploy-mta --host $4 --account $5 --source ./ui5app.mtar --synchronous --user $2 --password $3
 elif [ $1 == 'bsp' ]
 then
     # deploy app as BSP
