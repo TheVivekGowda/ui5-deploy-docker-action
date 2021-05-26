@@ -1,5 +1,5 @@
 # base image for docker container
-FROM integrtrvg/ui5
+FROM thevivekgowda/ui5-deploy
 
 # copy your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
