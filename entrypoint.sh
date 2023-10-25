@@ -9,7 +9,7 @@ then
 elif [ $1 == 'bsp' ]
 then
     # deploy app as BSP
-    ui5-deployer deploy --user $2 --pwd $3
+    ui5-deployer deploy --user $2 --pwd $3 --package $6 --bspContainer $7 --transportNo $8 
 else
    echo "Please provide valid deployment type. Allowed values are neo and bsp"
 fi

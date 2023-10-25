@@ -18,6 +18,15 @@ inputs:
   sub-account-id:
     description: "SAP BTP Sub Account ID"
     required: false
+  package:
+    description: "ABAP Package",
+    required: false
+  bspName:
+    description: 'BSP Name',
+    required: false
+  transportRequest:
+    description: "Transport Request",
+    required: false
 
 runs:
   using: "docker"
@@ -28,3 +37,6 @@ runs:
     - ${{ inputs.password }}
     - ${{ inputs.host }}
     - ${{ inputs.sub-account-id }}
+    - ${{ inputs.package }}
+    - ${{ inputs.bspName }}
+    - ${{ inputs.transportRequest }}
